@@ -13,6 +13,12 @@ public class Triangulo extends Figura{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	protected void mover() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

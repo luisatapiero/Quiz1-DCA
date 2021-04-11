@@ -47,7 +47,7 @@ public class Logica {
 	public void pintarFiguras() {
 		for (int i = 0; i < getArrayFiguras().size(); i++) {
 			getArrayFiguras().get(i).pintarFigura();
-			//arrayFiguras()).get(i).move();
+
 		}
 	}
 
@@ -58,9 +58,7 @@ public class Logica {
 				crearCirculo(infoList.get(i), Integer.parseInt(infoList.get(i + 1)),
 						Integer.parseInt(infoList.get(i + 2)), Integer.parseInt(infoList.get(i + 3)),
 						Integer.parseInt(infoList.get(i + 4)), Integer.parseInt(infoList.get(i + 5)));
-				System.out.println("sirve1");
 			} else if (infoList.get(i).equals("Cuadrado")) {
-				System.out.println("sirve2");
 				crearCuadrado(infoList.get(i), Integer.parseInt(infoList.get(i + 1)),
 						Integer.parseInt(infoList.get(i + 2)), Integer.parseInt(infoList.get(i + 3)),
 						Integer.parseInt(infoList.get(i + 4)), Integer.parseInt(infoList.get(i + 5)));
