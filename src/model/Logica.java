@@ -9,17 +9,11 @@ public class Logica {
 	private PApplet app;
 	private String[] info;
 	private ArrayList<String> infoList;
-	// private ArrayList<Cuadrado> cuadradoList;
-	// private ArrayList<Circulo> circuloList;
-	// private ArrayList<Triangulo> trianguloList;
 	private ArrayList<Figura> arrayFiguras;
 
 	public Logica(PApplet app) {
 		this.app = app;
 		infoList = new ArrayList<String>();
-		// cuadradoList = new ArrayList<Cuadrado>();
-		// circuloList = new ArrayList<Circulo>();
-		// trianguloList = new ArrayList<Triangulo>();
 		arrayFiguras = new ArrayList<Figura>();
 		cargarTxt();
 		System.out.println(arrayFiguras.size());
@@ -48,7 +42,8 @@ public class Logica {
 		for (int i = 0; i < getArrayFiguras().size(); i++) {
 			getArrayFiguras().get(i).pintarFigura();
 		}
-		
+		choqueFiguras();
+
 	}
 
 	private void crearFiguras() {
@@ -75,9 +70,14 @@ public class Logica {
 		Cuadrado cuadrado = new Cuadrado(tipo, tam, posX, posY, dir, value, app);
 		arrayFiguras.add(cuadrado);
 	}
-	
+
+	private void crearTriangulo(String tipo, int tam, int posX, int posY, int dir, int value) {
+		Triangulo triangulo = new Triangulo(tipo, tam, posX, posY, dir, value, app);
+		arrayFiguras.add(triangulo);
+	}
+
 	public void clicFigura() {
-		
+
 		for (int i = 0; i < arrayFiguras.size(); i++) {
 			if (app.mouseX > (arrayFiguras.get(i).getPosX() - (arrayFiguras.get(i).getTam() / 2))
 					&& app.mouseX < (arrayFiguras.get(i).getPosX() + (arrayFiguras.get(i).getTam() / 2))
@@ -87,7 +87,31 @@ public class Logica {
 
 			}
 		}
-		
+
+	}
+
+	private void choqueFiguras() {
+		for (int i = 0; i < arrayFiguras.size(); i++) {
+			for (int j = 0; j < arrayFiguras.size(); j++) {
+				if (arrayFiguras.get(i) != arrayFiguras.get(j)
+						&& (PApplet.dist(arrayFiguras.get(i).getPosX(), arrayFiguras.get(i).getPosY(),
+								arrayFiguras.get(j).getPosX(),
+								arrayFiguras.get(j).getPosY()) < (arrayFiguras.get(i).tam / 2 + arrayFiguras.get(j).getTam() / 2))
+						&& !arrayFiguras.get(i).getTipo().equals("Triangulo")
+						&& !arrayFiguras.get(j).getTipo().equals("Triangulo")) {
+					// System.out.println("choque");
+					int valor = arrayFiguras.get(i).getValor() + arrayFiguras.get(j).getValor();
+					int posX = (arrayFiguras.get(i).getPosX() + arrayFiguras.get(j).getPosX()) / 2;
+					int posY = (arrayFiguras.get(i).getPosY() + arrayFiguras.get(j).getPosY()) / 2;
+
+					crearTriangulo("Triangulo", (int) app.random(20, 60), posX, posY, -1, valor);
+					System.out.println(arrayFiguras.get(arrayFiguras.size() - 1).getPosX());
+					System.out.println(app.mouseX);
+					arrayFiguras.remove(i);
+					arrayFiguras.remove(j - 1);
+				}
+			}
+		}
 	}
 
 	public ArrayList<String> getInfoList() {
