@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.Logica;
 import processing.core.PApplet;
 
@@ -10,6 +12,11 @@ public class Controlador {
 
 	public Controlador(PApplet app) {
 		logica = new Logica(app);
+	}
+	
+	public void pintarFiguras(PApplet app) {
+		logica.pintarFiguras();
+		
 	}
 	
 	
