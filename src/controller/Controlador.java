@@ -7,8 +7,11 @@ public class Controlador {
 	
 	private Logica logica;
 
+
 	public Controlador(PApplet app) {
 		logica = new Logica(app);
 	}
+	
+	
 
 }
