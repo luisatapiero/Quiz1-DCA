@@ -89,4 +89,14 @@ public abstract class Figura {
 		this.valor = valor;
 	}
 
+	public boolean isMueve() {
+		return mueve;
+	}
+
+	public void setMueve(boolean mueve) {
+		this.mueve = mueve;
+	}
+	
+	
+
 }

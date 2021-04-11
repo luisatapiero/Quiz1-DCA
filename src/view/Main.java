@@ -29,5 +29,9 @@ public class Main extends PApplet{
 		controlador.pintarFiguras(this);
 	
 	}
+	
+	public void mousePressed() {
+		controlador.clicFIgura(this);
+	}
 
 }

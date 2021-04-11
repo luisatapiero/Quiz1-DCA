@@ -47,8 +47,8 @@ public class Logica {
 	public void pintarFiguras() {
 		for (int i = 0; i < getArrayFiguras().size(); i++) {
 			getArrayFiguras().get(i).pintarFigura();
-
 		}
+		
 	}
 
 	private void crearFiguras() {
@@ -74,6 +74,20 @@ public class Logica {
 	private void crearCuadrado(String tipo, int tam, int posX, int posY, int dir, int value) {
 		Cuadrado cuadrado = new Cuadrado(tipo, tam, posX, posY, dir, value, app);
 		arrayFiguras.add(cuadrado);
+	}
+	
+	public void clicFigura() {
+		
+		for (int i = 0; i < arrayFiguras.size(); i++) {
+			if (app.mouseX > (arrayFiguras.get(i).getPosX() - (arrayFiguras.get(i).getTam() / 2))
+					&& app.mouseX < (arrayFiguras.get(i).getPosX() + (arrayFiguras.get(i).getTam() / 2))
+					&& app.mouseY > (arrayFiguras.get(i).getPosY() - (arrayFiguras.get(i).getTam() / 2))
+					&& app.mouseY < (arrayFiguras.get(i).getPosY() + (arrayFiguras.get(i).getTam() / 2))) {
+				arrayFiguras.get(i).setMueve(!arrayFiguras.get(i).isMueve());
+
+			}
+		}
+		
 	}
 
 	public ArrayList<String> getInfoList() {

@@ -34,9 +34,11 @@ public class Cuadrado extends Figura{
 
 	@Override
 	protected void mover() {
-		posX += velX * dir;
-		posY += velY * dir;
-		rebotar();
+		if (mueve) {
+			posX += velX * dir;
+			posY += velY * dir;
+			rebotar();
+		}
 	}
 	
 	

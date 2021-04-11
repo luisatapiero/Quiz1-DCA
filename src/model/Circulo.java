@@ -31,9 +31,13 @@ public class Circulo extends Figura{
 
 	@Override
 	protected void mover() {
-		posX += velX * dir;
-		posY += velY * dir;
-		rebotar();
+		
+		if (mueve) {
+			posX += velX * dir;
+			posY += velY * dir;
+			rebotar();
+		}
+		
 	}
 	
 	protected void rebotar() {
