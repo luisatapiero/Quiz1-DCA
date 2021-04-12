@@ -31,7 +31,13 @@ public class Main extends PApplet{
 	}
 	
 	public void mousePressed() {
-		controlador.clicFIgura(this);
+		if(mouseButton == LEFT) {
+			controlador.clicFigura(this);
+		}else {
+			controlador.clicDerecho(this);
+		}
+		
+		
 	}
 
 }

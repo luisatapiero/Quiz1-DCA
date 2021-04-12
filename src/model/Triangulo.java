@@ -10,7 +10,7 @@ public class Triangulo extends Figura {
 	public Triangulo(String tipo, int tam, int posX, int posY, int dir, int valor, PApplet app) {
 		super(tipo, tam, posX, posY, dir, valor, app);
 		fijarColor();
-		velX = 2;
+		velX = 1;
 		velY = 2;
 	}
 
@@ -43,7 +43,7 @@ public class Triangulo extends Figura {
 			velX *= -1;
 		}
 		
-		if (posY - tam < 0  || posY > app.height) {
+		if (posY - tam/2 <= 0  || posY > app.height) {
 		    velY *= -1;
 		  }
 

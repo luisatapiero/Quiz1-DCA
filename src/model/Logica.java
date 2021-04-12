@@ -82,12 +82,24 @@ public class Logica {
 			if (app.mouseX > (arrayFiguras.get(i).getPosX() - (arrayFiguras.get(i).getTam() / 2))
 					&& app.mouseX < (arrayFiguras.get(i).getPosX() + (arrayFiguras.get(i).getTam() / 2))
 					&& app.mouseY > (arrayFiguras.get(i).getPosY() - (arrayFiguras.get(i).getTam() / 2))
-					&& app.mouseY < (arrayFiguras.get(i).getPosY() + (arrayFiguras.get(i).getTam() / 2))) {
+					&& app.mouseY < (arrayFiguras.get(i).getPosY() + (arrayFiguras.get(i).getTam() / 2))
+					&& !arrayFiguras.get(i).getTipo().equals("Triangulo")) {
 				arrayFiguras.get(i).setMueve(!arrayFiguras.get(i).isMueve());
 
+			} else if (app.mouseX > (arrayFiguras.get(i).getPosX())
+					&& app.mouseX < (arrayFiguras.get(i).getPosX() + arrayFiguras.get(i).getTam())
+					&& app.mouseY > (arrayFiguras.get(i).getPosY())
+					&& app.mouseY < (arrayFiguras.get(i).getPosY() + (arrayFiguras.get(i).getTam() / 2))
+					&& arrayFiguras.get(i).getTipo().equals("Triangulo")) {
+
+				arrayFiguras.get(i).setMueve(!arrayFiguras.get(i).isMueve());
 			}
 		}
 
+	}
+	
+	public void clicDerecho(){
+		nuevasFiguras();
 	}
 
 	private void choqueFiguras() {
@@ -96,15 +108,15 @@ public class Logica {
 				if (arrayFiguras.get(i) != arrayFiguras.get(j)
 						&& (PApplet.dist(arrayFiguras.get(i).getPosX(), arrayFiguras.get(i).getPosY(),
 								arrayFiguras.get(j).getPosX(),
-								arrayFiguras.get(j).getPosY()) < (arrayFiguras.get(i).tam / 2 + arrayFiguras.get(j).getTam() / 2))
+								arrayFiguras.get(j)
+										.getPosY()) < (arrayFiguras.get(i).tam / 2 + arrayFiguras.get(j).getTam() / 2))
 						&& !arrayFiguras.get(i).getTipo().equals("Triangulo")
 						&& !arrayFiguras.get(j).getTipo().equals("Triangulo")) {
-					// System.out.println("choque");
 					int valor = arrayFiguras.get(i).getValor() + arrayFiguras.get(j).getValor();
 					int posX = (arrayFiguras.get(i).getPosX() + arrayFiguras.get(j).getPosX()) / 2;
 					int posY = (arrayFiguras.get(i).getPosY() + arrayFiguras.get(j).getPosY()) / 2;
 
-					crearTriangulo("Triangulo", (int) app.random(20, 60), posX, posY, -1, valor);
+					crearTriangulo("Triangulo", (int) app.random(20, 60), posX, posY, 1, valor);
 					System.out.println(arrayFiguras.get(arrayFiguras.size() - 1).getPosX());
 					System.out.println(app.mouseX);
 					arrayFiguras.remove(i);
@@ -112,6 +124,17 @@ public class Logica {
 				}
 			}
 		}
+	}
+	
+	public void nuevasFiguras() {
+		int aleatoria = (int) app.random(1,10);
+		if (aleatoria <= 5 && aleatoria >= 1) {
+			crearCirculo("Circulo", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580), -1, (int) app.random(1, 20));
+
+		} else if (aleatoria <= 10 && aleatoria >= 6) {
+			crearCuadrado("Cuadrado", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580), -1, (int) app.random(1, 20));
+		}
+		
 	}
 
 	public ArrayList<String> getInfoList() {

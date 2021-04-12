@@ -19,8 +19,12 @@ public class Controlador {
 		
 	}
 	
-	public void clicFIgura(PApplet app) {
+	public void clicFigura(PApplet app) {
 		logica.clicFigura();
+	}
+	
+	public void clicDerecho(PApplet app) {
+		logica.nuevasFiguras();
 	}
 	
 	
