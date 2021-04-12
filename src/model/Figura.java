@@ -39,7 +39,6 @@ public abstract class Figura {
 	protected abstract void pintarFigura();
 
 	protected abstract void mover();
-		
 
 	public String getTipo() {
 		return tipo;
@@ -96,7 +95,5 @@ public abstract class Figura {
 	public void setMueve(boolean mueve) {
 		this.mueve = mueve;
 	}
-	
-	
 
 }

@@ -3,7 +3,7 @@ package model;
 import processing.core.PApplet;
 
 public class Triangulo extends Figura {
-	
+
 	protected int velX;
 	protected int velY;
 
@@ -16,7 +16,8 @@ public class Triangulo extends Figura {
 
 	@Override
 	protected void pintarFigura() {
-		app.noStroke();
+		app.stroke(0);
+		app.strokeWeight(1);
 		app.fill(r, g, b);
 		app.triangle(posX, posY, posX + tam / 2, posY - tam, posX + tam, posY);
 		app.fill(0);
@@ -42,10 +43,10 @@ public class Triangulo extends Figura {
 		if (posX < 0 || posX + tam > app.width) {
 			velX *= -1;
 		}
-		
-		if (posY - tam/2 <= 0  || posY > app.height) {
-		    velY *= -1;
-		  }
+
+		if (posY - tam / 2 <= 0 || posY > app.height) {
+			velY *= -1;
+		}
 
 	}
 }

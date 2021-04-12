@@ -97,8 +97,8 @@ public class Logica {
 		}
 
 	}
-	
-	public void clicDerecho(){
+
+	public void clicDerecho() {
 		nuevasFiguras();
 	}
 
@@ -125,16 +125,18 @@ public class Logica {
 			}
 		}
 	}
-	
+
 	public void nuevasFiguras() {
-		int aleatoria = (int) app.random(1,10);
+		int aleatoria = (int) app.random(1, 10);
 		if (aleatoria <= 5 && aleatoria >= 1) {
-			crearCirculo("Circulo", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580), -1, (int) app.random(1, 20));
+			crearCirculo("Circulo", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580), -1,
+					(int) app.random(1, 20));
 
 		} else if (aleatoria <= 10 && aleatoria >= 6) {
-			crearCuadrado("Cuadrado", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580), -1, (int) app.random(1, 20));
+			crearCuadrado("Cuadrado", (int) app.random(20, 60), (int) app.random(20, 580), (int) app.random(20, 580),
+					-1, (int) app.random(1, 20));
 		}
-		
+
 	}
 
 	public ArrayList<String> getInfoList() {
